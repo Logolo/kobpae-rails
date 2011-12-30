@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= yield(:title).present? ? yield(:title) : 'Kobpae' %></title>
+	<%= favicon_link_tag %>
+	
+	<%= stylesheet_link_tag    'application' %>	
+	<%= javascript_include_tag 'application' %>
+	<%= javascript_include_tag "ckeditor/ckeditor.js" %>
+	
+	<%= csrf_meta_tags %>
+</head>
+<body>
+
+	<%- flash.each do |name, msg| -%>
+			<%= content_tag :div, msg, :class => "flash #{name}" if msg.is_a?(String) %>
+	<%- end -%>
+	
+	<%= render 'shared/header' %>
+	
+	<div id="navigation" class="<%= "home" unless signed_in? %>">
+		<ul class="container">
+			<%= render 'shared/menu' %>
+		</ul>
+	</div>
+	  
+	<%= yield %>
+	
+	<%= render 'shared/footer' %>
+
+</body>
+</html>
+

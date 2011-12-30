@@ -1,0 +1,22 @@
+<% content_for :title, t(:rename_folder) -%>
+
+<div id="header">
+	<div class="container">
+		<h1><%= content_for :title %></h1>
+	</div>
+</div>
+
+<div id="body">
+	<div class="container">
+		<div id="sidebar" class="span-6">
+			<ul>
+				<li><%= link_to t(:back), folder_url(@folder.parent) %></li>
+			</ul>
+		</div>
+		<div class="span-18 last">
+			<%= form_for @folder do |f| %>
+				<%= render :partial => 'form', :locals => { :f => f } %>
+			<% end %>
+		</div>
+	</div>
+</div>

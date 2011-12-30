@@ -1,0 +1,20 @@
+<% content_for :title, @title -%>
+
+<div id="header">
+	<div class="container">
+		<h1><%= content_for :title %></h1>
+	</div>
+</div>
+
+<div id="body">
+	<div class="container">
+		<div id="sidebar" class="span-6">
+			<ul>
+				<li><%= link_to t(:back), users_url %></li>
+			</ul>
+		</div>
+		<div class="span-18 last">
+			<%= render 'form' %>
+		</div>
+	</div>
+</div>

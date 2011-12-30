@@ -1,0 +1,67 @@
+<% content_for :title, t(:new_document) -%>
+
+<div id="header">
+	<div class="container">
+		<h1><%= content_for :title %></h1>
+		<h2>from <%= params[:from] %></h2>
+	</div>
+</div>
+
+<div id="body">
+	<div class="container">
+		<div id="sidebar" class="span-6">
+			<ul>
+				<li><%= link_to t(:back), folder_url(@target_folder) %></li>
+			</ul>
+		</div>
+		<div class="span-18 last">
+			<% if params[:from] == "upload" %>
+				<%= form_for [@target_folder, @file], :url => { :action => 'create', :from => "upload" }, :html => { :multipart => true } do |f| %>
+					<%= f.error_messages %>
+					<p>
+						<%= f.label t(:name) %>:<br>
+						<%= f.text_field :attachment_file_name %>
+					</p>
+					<p>
+						<%= f.label t(:select_file) %>:<br>
+						<%= f.file_field :attachment %>
+					</p>
+					<p>
+						<%= f.submit t(:upload) %>
+					</p>
+				<% end %>			
+			<% end %>
+			<% if params[:from] == "scratch" %>
+				<%= form_for [@target_folder, @file], :url => { :action => 'create', :from => "scratch" }, :html => { :multipart => true } do |f| %>
+					<%= f.error_messages %>
+					<p>
+						<%= f.label t(:name) %>:<br />
+						<%= f.text_field :attachment_file_name %>
+					</p>
+					<p>
+						<%= f.label :content %><br />
+					</p>
+					<p>
+						<%= f.submit t(:save) %>
+					</p>
+				<% end %>
+			<% end %>
+			<% if params[:from] == "webpage" %>
+				<%= form_for [@target_folder, @file], :url => { :action => 'create' }, :html => { :multipart => true } do |f| %>
+					<%= f.error_messages %>
+					<p>
+						<%= f.label :web_page_url %>:<br />
+						<%= f.text_field :attachment_file_name, :value => "http://th.wikipedia.org/wiki/อาร์คิมิดีส", :size => 90 %>
+					</p>
+					<p>
+						<%= f.label :preview %><br />
+						<iframe src="http://th.wikipedia.org/wiki/อาร์คิมิดีส" width="100%" height="300"></iframe>
+					</p>
+					<p>
+						<%= f.submit :import %>
+					</p>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>

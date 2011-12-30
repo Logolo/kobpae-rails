@@ -1,0 +1,29 @@
+<li class="span-6" id="logo">
+  <%= link_to image_tag('logo-small.png', :style => 'vertical-align: bottom') + content_tag(:small, 'v2.0'), root_path %>
+</li>
+
+<% if signed_in? -%>
+  <li class="span-4 prepend-0">
+    <%= t :hello %>, <%= current_user.name %></strong>
+  </li>
+  <li class="span-2">
+	<%= link_to t(:folders), folders_path %>
+  </li>
+  <% if current_user.member_of_admins? -%>
+    <li class="span-2">
+  	  <%= link_to t(:users), users_path %>
+  	</li>
+  	<li class="span-2">
+	  <%= link_to t(:groups), groups_path %>
+	</li>
+	<li class="span-2">
+	  <%= link_to t(:shared_files), share_links_path %>
+	</li>
+  <% end -%>
+  <li class="span-2">
+    <%= link_to t(:settings), edit_user_path(current_user) %>
+  </li>
+  <li class="span-2">
+    <%= link_to t(:sign_out), signout_path, :method => :delete %>
+  </li>
+<% end -%>

@@ -1,0 +1,10 @@
+<%= form_for @group do |f| %>
+	<%= f.error_messages %>
+	<p>
+		<%= f.label :name %>:<br>
+		<%= f.text_field :name, { :class => 'text_input' } %>
+	</p>
+	<p>
+		<%= f.submit t(:save) %> &nbsp; &mdash; &nbsp;
+	</p>
+<% end %>

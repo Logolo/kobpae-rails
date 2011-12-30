@@ -1,0 +1,55 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#navigation.home {
+	background: #061E4A url('navigation-home-bg.jpg') no-repeat center top;
+}
+
+#home {
+	background: url('/assets/home-bg.jpg') no-repeat center top;
+	margin: 0 auto;
+	padding: 23px 0 0 0;
+	position: relative;
+	height: 450px;
+}
+
+#home label {
+	color: #FFF;
+	font-weight: normal;
+	padding: 18px 0;
+	text-shadow: 0 1px 0 rgba(0,0,0,.5px);	
+}
+
+#home a {
+	color: #6DBAFF;
+	text-decoration: none;
+}
+
+#home input[type="text"], 
+#home input[type="password"], 
+#home input[type="url"], 
+#home input[type="email"], 
+#home input.text, 
+#home input.title, 
+#home textarea {
+	background-color: white;
+	color: black;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow:inset 2px 1px 5px #555;
+	-webkit-box-shadow:inset 2px 1px 5px #555;
+	box-shadow:inset 2px 1px 5px #555;
+	border: 1px solid #19468E;
+	padding: 6px;
+}
+
+#home input[type="submit"] {
+	border: 1px solid #19468E;
+	padding: 6px;
+	color: black;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
