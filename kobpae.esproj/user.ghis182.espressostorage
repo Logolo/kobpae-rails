@@ -13,7 +13,7 @@
 		<key>StateType</key>
 		<string>ProjectWindow</string>
 		<key>TopLeftPoint</key>
-		<string>{0, 878}</string>
+		<string>{3, 878}</string>
 	</dict>
 	<key>com.macrabbit.Espresso.FileManager.DisclosureCollapsed</key>
 	<false/>
@@ -28,6 +28,7 @@
 			<string>file://localhost/Users/ghis182/Sites/kobpae-rails/app/helpers</string>
 			<string>file://localhost/Users/ghis182/Sites/kobpae-rails/app/mailers</string>
 			<string>file://localhost/Users/ghis182/Sites/kobpae-rails/app/models</string>
+			<string>file://localhost/Users/ghis182/Sites/kobpae-rails/app/views/admins</string>
 			<string>file://localhost/Users/ghis182/Sites/kobpae-rails/app/views/clipboard</string>
 			<string>file://localhost/Users/ghis182/Sites/kobpae-rails/app/views/files</string>
 			<string>file://localhost/Users/ghis182/Sites/kobpae-rails/app/views/folders</string>
@@ -305,6 +306,12 @@
 			<dict>
 				<key>DocumentURL</key>
 				<string>file://localhost/Users/ghis182/Sites/kobpae-rails/app/views/admins/new.html.erb</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/ghis182/Sites/kobpae-rails/README.md</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>

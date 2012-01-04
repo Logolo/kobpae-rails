@@ -61,11 +61,12 @@
 					<p>
 						<%= f.submit :import %>
 					</p>
-					<script type="text/coffeescript" charset="utf-8">
+					<%= coffeescript_tag do %>
 						$ ->
 						  alert 'coffeescript'
 						  $('#frame_input').change ->
 						    $('#frame_preview').val @.val()
+					<% end %>
 					</script>
 				<% end %>
 			<% end %>
