@@ -40,6 +40,7 @@
 					</p>
 					<p>
 						<%= f.label :content %><br />
+						<%= f.cktext_area :content %>
 					</p>
 					<p>
 						<%= f.submit t(:save) %>
@@ -51,15 +52,21 @@
 					<%= f.error_messages %>
 					<p>
 						<%= f.label :web_page_url %>:<br />
-						<%= f.text_field :attachment_file_name, :value => "http://th.wikipedia.org/wiki/อาร์คิมิดีส", :size => 90 %>
+						<%= f.text_field :attachment_file_name, :value => "http://th.wikipedia.org/wiki/โจรกรรมทางวรรณกรรม", :id => 'frame_input', :size => 90 %>
 					</p>
 					<p>
 						<%= f.label :preview %><br />
-						<iframe src="http://th.wikipedia.org/wiki/อาร์คิมิดีส" width="100%" height="300"></iframe>
+						<iframe id="frame_preview" src="http://th.wikipedia.org/wiki/โจรกรรมทางวรรณกรรม" width="100%" height="300"></iframe>
 					</p>
 					<p>
 						<%= f.submit :import %>
 					</p>
+					<script type="text/coffeescript" charset="utf-8">
+						$ ->
+						  alert 'coffeescript'
+						  $('#frame_input').change ->
+						    $('#frame_preview').val @.val()
+					</script>
 				<% end %>
 			<% end %>
 		</div>

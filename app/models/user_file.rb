@@ -3,8 +3,6 @@ class UserFile < ActiveRecord::Base
 
   belongs_to :folder
   has_many :share_links, :dependent => :destroy
-  
-  #attr_accessible :content
 
   validates_attachment_presence :attachment, :message => I18n.t(:blank, :scope => [:activerecord, :errors, :messages])
   validates_presence_of :folder_id
@@ -25,23 +23,7 @@ class UserFile < ActiveRecord::Base
 
     new_file
   end
-  
-  def setContent(content)
-  	File.open(@attachment.path, 'w') do |f|
-  	  f.puts content
-  	end
-  end
-  
-  def getContent()
-  	buffer = ""
-  	File.open(@attachment.path, 'r') do |f|
-  	  while line = f.gets
-  	    buffer += line.length
-  	  end
-  	end
-  	buffer
-  end
-
+ 
   def move(target_folder)
     self.folder = target_folder
     save!
@@ -54,6 +36,9 @@ class UserFile < ActiveRecord::Base
   private
   
   def check_for_existing_file
-   	FileUtils.touch attachment.path
+    unless File.exists?(attachment.path)
+  	  FileUtils.mkdir_p File.dirname(attachment.path) 
+  	  FileUtils.touch attachment.path
+  	end
   end
 end

@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Boxroom::Application.load_tasks
+Kobpae::Application.load_tasks

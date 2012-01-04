@@ -1,4 +1,4 @@
-Boxroom::Application.routes.draw do
+Kobpae::Application.routes.draw do
   get '/signin', :to => 'sessions#new'
   delete '/signout', :to => 'sessions#destroy'
 

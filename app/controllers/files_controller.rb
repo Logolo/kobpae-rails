@@ -1,4 +1,5 @@
 require 'fileutils'
+require 'iconv'
 
 class FilesController < ApplicationController
   before_filter :require_existing_file, :only => [:show, :edit, :update, :destroy]
@@ -17,28 +18,49 @@ class FilesController < ApplicationController
   # @target_folder is set in require_existing_target_folder
   def new
     @file = @target_folder.user_files.build
+    @file[:content] = '<h1>New file</h1>'
   end
 
   # @target_folder is set in require_existing_target_folder
   def create
-    @file = @target_folder.user_files.build(params[:user_file])
+  
+  	data = params[:user_file]
+    @file = @target_folder.user_files.build(data.except(:content))
     
     if @file.save
+      
+      if data[:content]
+        File.open(@file.attachment.path, 'w') do |f|
+          f.puts data[:content]
+        end
+      end  
       redirect_to folder_url(@target_folder)
     else
       render :action => 'new'
     end
-    
+	#end unless params[:user_file].nil?
     #redirect_to fredit_path(:file => @path)
   end
 
   # @file and @folder are set in require_existing_file
   def edit
+  	Iconv.open('UTF-8//IGNORE', 'UTF-8') do |ic|
+  	  @file[:content] = ic.iconv(File.open(@file.attachment.path, 'r').read)
+  	end
   end
 
   # @file and @folder are set in require_existing_file
   def update
-    if @file.update_attributes(params[:user_file])
+  	
+  	data = params[:user_file]
+  	 	
+    if @file.update_attributes(data.except(:content))
+    
+      if data[:content]
+        File.open(@file.attachment.path, 'w') do |f|
+          f.puts data[:content]
+        end
+      end
       redirect_to edit_file_url(@file), :notice => t(:your_changes_were_saved)
     else
       render :action => 'edit'

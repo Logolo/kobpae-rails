@@ -3,4 +3,4 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the rails application
-Boxroom::Application.initialize!
+Kobpae::Application.initialize!
