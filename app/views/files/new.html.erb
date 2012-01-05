@@ -56,17 +56,46 @@
 					</p>
 					<p>
 						<%= f.label :preview %><br />
-						<iframe id="frame_preview" src="http://th.wikipedia.org/wiki/โจรกรรมทางวรรณกรรม" width="100%" height="300"></iframe>
+						<iframe id="frame_preview" src="http://th.wikipedia.org/wiki/โจรกรรมทางวรรณกรรม"></iframe>
 					</p>
 					<p>
 						<%= f.submit :import %>
+						<div id="time_div"></div>
 					</p>
-					<%= coffeescript_tag do %>
-						$ ->
+					<script type="text/javascript">
+					
+					$(function(){
+					  $('#frame_input').change(function(){
+					    var src = $(this).val()
+					    
+					    try {
+					      console.log("Loading iframe content");
+					      $('#frame_preview').attr('src', src);
+					    } catch (e) {
+					       console.log("Caught", e);
+					    }
+					    console.log("Done loading");
+					    
+					    $.ajax({
+					    	url: '<%= url_for :controller => :api, :action => :say_when %> 
+					    	success: function(data){ alert(data); }
+					    });
+					
+					    /*
+					    ;
+					    $('#frame_preview').load(function(){
+					      console.log($('#frame_preview').contents());
+					      $('#frame_input').val($('#frame_preview').contents().find('title').html())
+					    });
+					  	*/
+				      });	
+					});
+					
+					/*	$ ->
 						  alert 'coffeescript'
 						  $('#frame_input').change ->
-						    $('#frame_preview').val @.val()
-					<% end %>
+						    $('#frame_preview').val @val()
+					*/
 					</script>
 				<% end %>
 			<% end %>

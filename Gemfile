@@ -16,6 +16,7 @@ gem 'blueprint-rails', "~> 0.1.2"
 gem 'ckeditor'
 gem 'paperclip'
 gem 'fileutils'
+gem 'pdf-reader'
 
 group :assets do
   gem 'sass-rails', '~> 3.1.0'

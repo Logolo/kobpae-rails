@@ -131,10 +131,12 @@ p, ol, ul, td {
   padding-top: 18px;
 }
 
-iframe {
+#frame_preview {
 	background-color: white;
 	border: 1px solid #BBB;
 	color: black;	
+	width: 99%;
+	height: 300px;
 }
 /*
 button,

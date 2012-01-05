@@ -13,7 +13,7 @@
 		<key>StateType</key>
 		<string>ProjectWindow</string>
 		<key>TopLeftPoint</key>
-		<string>{3, 878}</string>
+		<string>{0, 878}</string>
 	</dict>
 	<key>com.macrabbit.Espresso.FileManager.DisclosureCollapsed</key>
 	<false/>
@@ -22,7 +22,7 @@
 		<key>ExpandedURLs</key>
 		<array>
 			<string>file://localhost/Users/ghis182/Sites/kobpae-rails/app/assets/images/icons</string>
-			<string>file://localhost/Users/ghis182/Sites/kobpae-rails/app/assets/javascripts/app</string>
+			<string>file://localhost/Users/ghis182/Sites/kobpae-rails/app/assets/javascripts</string>
 			<string>file://localhost/Users/ghis182/Sites/kobpae-rails/app/assets/stylesheets</string>
 			<string>file://localhost/Users/ghis182/Sites/kobpae-rails/app/controllers</string>
 			<string>file://localhost/Users/ghis182/Sites/kobpae-rails/app/helpers</string>
@@ -312,6 +312,24 @@
 			<dict>
 				<key>DocumentURL</key>
 				<string>file://localhost/Users/ghis182/Sites/kobpae-rails/README.md</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/ghis182/Sites/kobpae-rails/app/assets/javascripts/jquery.sexy.js</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/ghis182/Sites/kobpae-rails/app/controllers/api_controller.rb</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/ghis182/Sites/kobpae-rails/app/views/files/show.html.erb</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>

@@ -3,6 +3,7 @@ Kobpae::Application.routes.draw do
   delete '/signout', :to => 'sessions#destroy'
 
   # Resources
+  resources :api
   resources :admins, :only => [:new, :create]
   resources :sessions, :only => [:new, :create, :destroy]
   resources :reset_password, :except => [:index, :show, :destroy]

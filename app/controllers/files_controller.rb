@@ -12,7 +12,10 @@ class FilesController < ApplicationController
 
   # @file and @folder are set in require_existing_file
   def show
-    send_file @file.attachment.path, :filename => @file.attachment_file_name
+    Iconv.open('UTF-8//IGNORE', 'UTF-8') do |ic|
+      @file[:content] = ic.iconv(File.open(@file.attachment.path, 'r').read)
+    end
+    #send_file @file.attachment.path, :filename => @file.attachment_file_name
   end
 
   # @target_folder is set in require_existing_target_folder
